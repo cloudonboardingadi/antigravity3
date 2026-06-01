@@ -1,0 +1,65 @@
+Once the user fills the Account details and clicks on next , then API call will will happen in backend and an onboarding id will get created and then account details will get inserted into Account details table. Then in UI as user enters the Requirement assesment details , api call will be there in backend for insertion. 
+
+
+Original prompt given : 
+Go throught he UI codebase , understand the usecase. Create a backend in FAST API framework. Only till the account details , and requirement assesment part you create the backend code for this. Also make api calls in from UI codebase for these two sections. For the remaining section , keep it as it is(local storage in UI code which is there). So as the user clicks on the New onboarding, an api call will happen which will fetch the questionares, options, and their correct resposne everything  from the backend with api call. The validation for these questionares will be done in the UI side only, as it is happening now. Same for the Disclaimer page api call in backend to fetch the content in UI and as user proceeds to I agree , then it will land to Onboarding workflow into the Account details section. Create the backend code for handling the account details and requirement assesment specific to the onboardings. Also , in the server landing page , there should also be api call which will fetch the onboarding list. Make the UI changes for the api calls and create the entire backend codebase using the Domain-Driven (Vertical Slice) Pattern. Database connection will be generic with SQLAlchemy. Follow the best coding standards and principals 
+
+
+When antigravity gave the Implementation PLan for verification, then gave this prompt :
+
+Let the disclaimer and eligibility come under the umbrella of Onboarding itself
+Segregate out the account details and requirement part as shown , in the structure below. 
+Remove any mention of question numbers from the content given in UI(eg. remove something like Q4, Q5b,etc)
+Use connection of Postgres instead of SQLite
+
+Example structure of backend is like : 
+cloud_onboarding_api/
+├── app/
+│   ├── main.py                 # FastAPI application and global exception handlers
+│   ├── core/                   # Security, DB connections, global settings
+│   │   ├── config.py           # Pydantic BaseSettings
+│   │   └── database.py         # SQLAlchemy engine and session dependency
+│   │
+│   ├── domains/                # Feature-based vertical slices
+│   │   │
+│   │   ├── onboarding/         # The core wrapper linking everything (Steps 1-8 logic)
+│   │   │   ├── router.py       # Endpoints: GET /onboarding, PATCH /onboarding/{id}/status
+│   │   │   ├── schemas.py      # BackendOnboarding, BackendStatus Pydantic models
+│   │   │   ├── models.py       # Onboarding SQLAlchemy model
+│   │   │   └── service.py      # Logic for inferring status (Draft -> In Progress -> Complete)
+│   │   │
+│   │   ├── account_details/    # Maps to Step 1
+│   │   │   ├── router.py       # Endpoints: POST /account-details/create/{id}, PUT /{id}
+│   │   │   ├── schemas.py      # BackendAccountDetails
+│   │   │   ├── models.py       # AccountDetails SQLAlchemy model
+│   │   │   └── service.py      
+│   │   │
+│   │   ├── requirements/       # Maps to Step 2
+│   │   │   ├── router.py       # Endpoints: POST /requirement-assessment/create/{id}, PUT /{id}
+│   │   │   ├── schemas.py      # BackendRequirementAssessment
+│   │   │   └── models.py       
+│   │   │
+│   │   ├── architecture/       # Maps to Step 4 (Future integration)
+│   │   │   ├── router.py       # Diagram upload endpoints, AI analysis triggers
+│   │   │   ├── ai_service.py   # Logic to detect security violations in diagrams
+│   │   │   └── models.py
+│   │   │
+│   │   ├── approvals/          # Maps to Step 6 (Future integration)
+│   │   │   └── ...
+│   │   │
+│   │   └── rfc_management/     # Maps to Step 8 (Future integration)
+│   │       ├── router.py       # Endpoints for RFC tracking
+│   │       ├── schemas.py      # Standard, Normal, Emergency payloads
+│   │       └── models.py
+
+
+
+Next prompt : 
+In the backend codebase, create a .env , also create a .gitignore file . 
+
+Can you implement logger inside the backend codebase
+
+In UI codebase, why does useEffect is needed ? When inside the workflow, in every page there is a Next button, so each page next button can correspond to its specific api calls. For Account details page Next button - api calls to onboarding api to change the name and the state, and api calls to insert/update the account details..For requirement assesment - api calls to onboarding and requirement apis...This way, is there some bottleneck ? can you just tell. 
+
+
+

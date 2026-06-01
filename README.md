@@ -1,2 +1,3 @@
-# antigravity3
-above 2, made eligibility insertion via admin api calls
+# Welcome to your Lovable project
+
+TODO: Document your project here

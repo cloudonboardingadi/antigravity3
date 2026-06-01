@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Infrastructure Governance",
+    "text": "All cloud infrastructure is provisioned, owned, and managed exclusively by the DIS/Platform team. Project teams will not receive resource creation rights, administrative access, or subscription/account ownership permissions.",
+    "sort_order": 1
+  },
+  {
+    "title": "Cloud-to-On-Premise Connectivity",
+    "text": "Connectivity requirements between cloud and on-premise environments (new connectivity, existing connections, or none) must be declared during onboarding and reviewed by the platform team.",
+    "sort_order": 2
+  },
+  {
+    "title": "External Data Ingestion",
+    "text": "Any copy, transfer, or ingestion of data from external or project-managed accounts/environments into the DIS managed cloud must be declared upfront.",
+    "sort_order": 3
+  },
+  {
+    "title": "ISM Approval for Data Transfer",
+    "text": "Where data transfer is required, formal ISM approval, compliance review, and security validation must be obtained before any data movement.",
+    "sort_order": 4
+  },
+  {
+    "title": "VM Image Standards",
+    "text": "Servers/VMs must use organization-approved hardened images. Marketplace or public images require formal ISM exception approval prior to deployment.",
+    "sort_order": 5
+  },
+  {
+    "title": "GenAI Sandbox Isolation",
+    "text": "All GenAI workloads will be provisioned exclusively within designated, isolated sandbox environments — segregated from the enterprise intranet/network and not exposed via enterprise connectivity.",
+    "sort_order": 6
+  },
+  {
+    "title": "Data Restrictions for GenAI",
+    "text": "Customer confidential data, organization confidential data, sensitive internal documents, and regulated/restricted datasets must never be uploaded into GenAI environments.",
+    "sort_order": 7
+  },
+  {
+    "title": "GenAI Data Transfer Approval",
+    "text": "Any permissible data transfer into GenAI sandbox environments requires prior ISM approval, Data Privacy approval, and security compliance validation.",
+    "sort_order": 8
+  }
+]

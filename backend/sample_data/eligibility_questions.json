@@ -1,0 +1,67 @@
+[
+  {
+    "section": "Basic Hosting & Project Eligibility",
+    "title": "Are you planning to host your application/workload within the TCS managed cloud environment operated by the DIS/Platform team?",
+    "note": null,
+    "question_type": "single",
+    "options": ["Yes", "No"],
+    "correct_answer": "Yes",
+    "fail_message": "DIS Managed Cloud onboarding is only for workloads hosted within the TCS managed cloud environment.",
+    "sort_order": 1
+  },
+  {
+    "section": "Basic Hosting & Project Eligibility",
+    "title": "Is your project a TCS internal organization-managed project/application?",
+    "note": "External clients cannot be onboarded directly.",
+    "question_type": "single",
+    "options": ["Yes", "No"],
+    "correct_answer": "Yes",
+    "fail_message": "Only TCS internal organization-managed projects are eligible. External clients cannot be onboarded directly.",
+    "sort_order": 2
+  },
+  {
+    "section": "Basic Hosting & Project Eligibility",
+    "title": "Does your project require any of the following? (Select all that apply)",
+    "note": null,
+    "question_type": "multi",
+    "options": [
+      "Direct customer/client-owned setups",
+      "Customer-managed cloud subscriptions/accounts",
+      "External third-party managed environments",
+      "None of the above"
+    ],
+    "correct_answer": ["None of the above"],
+    "fail_message": "Customer-owned setups, customer-managed subscriptions, and third-party managed environments are strictly prohibited on DIS Managed Cloud.",
+    "sort_order": 3
+  },
+  {
+    "section": "Infrastructure & Deployment Scope",
+    "title": "Do you require support for the procurement of on-premise servers/infrastructure?",
+    "note": "On-premise procurement is outside the scope of the cloud/platform team.",
+    "question_type": "single",
+    "options": ["Yes", "No"],
+    "correct_answer": "No",
+    "fail_message": "On-premise server procurement is outside the scope of the DIS/Platform team and cannot be supported through this onboarding.",
+    "sort_order": 4
+  },
+  {
+    "section": "Infrastructure & Deployment Scope",
+    "title": "Migration of Existing Resources: Are you looking to migrate existing cloud resources or environments directly into the DIS managed cloud?",
+    "note": "Direct migration of existing external/project resources is not allowed.",
+    "question_type": "single",
+    "options": ["Yes", "No"],
+    "correct_answer": "No",
+    "fail_message": "Direct migration of existing external/project cloud resources into DIS Managed Cloud is not allowed.",
+    "sort_order": 5
+  },
+  {
+    "section": "Infrastructure & Deployment Scope",
+    "title": "Green-Field Deployment: Can you confirm that all infrastructure and services will be built from scratch in accordance with organization-approved architecture standards, deployment pipelines, and templates?",
+    "note": null,
+    "question_type": "single",
+    "options": ["Yes", "No"],
+    "correct_answer": "Yes",
+    "fail_message": "All DIS Managed Cloud deployments must be green-field, using approved architecture standards, pipelines, and templates.",
+    "sort_order": 6
+  }
+]
